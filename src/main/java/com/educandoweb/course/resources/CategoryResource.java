@@ -13,18 +13,16 @@ import com.educandoweb.course.entities.Category;
 import com.educandoweb.course.services.CategoryService;
 
 @RestController
-@RequestMapping(value = "/categories")
+@RequestMapping(value = "/categories")		
 public class CategoryResource {
-	
-	@Autowired
+
+	@Autowired 
 	private CategoryService service;
 	
 	@GetMapping
 	public ResponseEntity<List<Category>> findAll() {
 		List<Category> list = service.findAll();
 		return ResponseEntity.ok().body(list);
-		
-		
 	}
 	
 	@GetMapping(value = "/{id}")
@@ -32,4 +30,4 @@ public class CategoryResource {
 		Category obj = service.findById(id);
 		return ResponseEntity.ok().body(obj);
 	}
-}	
+}
