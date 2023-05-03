@@ -10,19 +10,30 @@ import org.springframework.context.annotation.Profile;
 import com.educandoweb.course.entities.Category;
 import com.educandoweb.course.entities.Product;
 import com.educandoweb.course.repositories.CategoryRepository;
+import com.educandoweb.course.repositories.OrderRepository;
 import com.educandoweb.course.repositories.ProductRepository;
+import com.educandoweb.course.repositories.UserRepository;
 
 @Configuration
 @Profile("test")
 public class TestConfig implements CommandLineRunner {
 
 	@Autowired
+	private UserRepository userRepository;
+	
+	@Autowired
+	private OrderRepository orderRepository;
+	
+	@Autowired
+	private OrderItemRepository orderItemRepository;
+	
+	@Autowired
 	private CategoryRepository categoryRepository;
 	
 	@Autowired
 	private ProductRepository productRepository;
 
-	
+
 	@Override
 	public void run(String... args) throws Exception {
 		
